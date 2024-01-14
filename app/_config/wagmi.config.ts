@@ -1,5 +1,11 @@
 import { createConfig } from "wagmi";
 import { getDefaultConfig } from "connectkit";
+import { sepolia, goerli, polygon, mainnet } from "wagmi/chains";
+
+const chains =
+  process.env.NODE_ENV === "production"
+    ? [mainnet, polygon]
+    : [sepolia, goerli];
 
 export const config = createConfig(
   getDefaultConfig({
@@ -14,5 +20,6 @@ export const config = createConfig(
       "LFGHO is a community of like-minded individuals who are passionate about the metaverse and the future of gaming.",
     // appUrl: "https://family.co",
     appIcon: "https://family.co/logo.png",
+    chains,
   })
 );

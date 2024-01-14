@@ -1,15 +1,12 @@
 "use client";
 import { WagmiConfig } from "wagmi";
-import { ConnectKitProvider, ConnectKitButton } from "connectkit";
-import { config } from "./wagmi";
+import { ConnectKitProvider } from "connectkit";
+import { config } from "./wagmi.config";
 
 const Provider = ({ children }: { children: React.ReactNode }) => {
   return (
     <WagmiConfig config={config}>
-      <ConnectKitProvider>
-        {children}
-        <ConnectKitButton />
-      </ConnectKitProvider>
+      <ConnectKitProvider>{children}</ConnectKitProvider>
     </WagmiConfig>
   );
 };
